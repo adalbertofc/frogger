@@ -21,6 +21,12 @@ var Enemy = function() {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
+
+Enemy.prototype.collisions = function(object) {
+    return (this.x < object.x + object.width  && this.x + this.width  > object.x &&
+        this.y < object.y + object.height && this.y + this.height > object.y);    
+};
+
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
