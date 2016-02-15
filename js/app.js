@@ -28,7 +28,7 @@ Enemy.prototype.update = function(dt) {
     this.x += (X_INCREMENT * dt * this.speed);
     
     if(this.x > 480){
-        var locations = [100.8 , 181.6 , 262.40];
+        var locations = [80.8 , 161.6 , 242.40];
         this.speed = Math.random() * 5;
         this.x = 0;
         this.y = locations[getRandomInt(0,2)];
