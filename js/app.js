@@ -1,5 +1,5 @@
 var X_INCREMENT = 101;
-var Y_INCREMENT = 101;
+var Y_INCREMENT = 85;
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -11,8 +11,8 @@ var Enemy = function() {
     // we've provided one for you to get started
     this.x = 0;
     this.y = 20;
-    this.width = 50;
-    this.height = 85;
+    this.width = 80;
+    this.height = 50;
     this.speed = Math.random() * 5;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -34,7 +34,7 @@ Enemy.prototype.update = function(dt) {
     this.x += (X_INCREMENT * dt * this.speed);
     
     if(this.x > 480){
-        var locations = [80.8 , 161.6 , 242.40];
+        var locations = [60.0 , 150.0 , 232.0];
         this.speed = Math.random() * 5;
         this.x = 0;
         this.y = locations[getRandomInt(0,2)];
@@ -57,13 +57,13 @@ var Player = function(){
     Enemy.call(this);
     this.sprite = 'images/char-boy.png';
     this.x = 202;
-    this.y = 424;
+    this.y = 406;
 
 };
 Player.prototype = Object.create(Enemy.prototype);
 Player.prototype.reset = function(){
     this.x = 202;
-    this.y = 424;
+    this.y = 406;
 };
 Player.prototype.update = function(dt) {
     if(player.y < 20){
