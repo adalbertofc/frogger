@@ -34,10 +34,15 @@ Enemy.prototype.update = function(dt) {
     this.x += (X_INCREMENT * dt * this.speed);
     
     if(this.x > 480){
+        var direccions=[0,480];
         var locations = [60.0 , 150.0 , 232.0];
-        this.speed = Math.random() * 5;
-        this.x = 0;
+        this.x = direccions[getRandomInt(0,1)];
         this.y = locations[getRandomInt(0,2)];
+        if(this.x>0){
+            this.speed = Math.random() * (-5);
+        }else{
+            this.speed = Math.random() * 5; 
+        }
 
     }
     if(this.collisions(player)){
