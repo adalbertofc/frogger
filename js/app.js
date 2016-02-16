@@ -1,5 +1,6 @@
 var X_INCREMENT = 101;
 var Y_INCREMENT = 85;
+var puntuacion=0;
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -46,6 +47,8 @@ Enemy.prototype.update = function(dt) {
 
     }
     if(this.collisions(player)){
+        confirm("Haz perdido, puntuacion:"+puntuacion);
+        puntuacion=0;
         player.reset();
     }
 };
@@ -72,6 +75,7 @@ Player.prototype.reset = function(){
 };
 Player.prototype.update = function(dt) {
     if(player.y < 20){
+        puntuacion+=100;
         player.reset();
     }
     console.log('player x = ', this.x, 'player y = ', this.y);    
